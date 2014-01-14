@@ -1,0 +1,103 @@
+%%
+%% theme.tex
+%% Made by nicuveo <antoine.jp.leblanc@gmail.com>
+%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Base theme
+
+\mode<presentation>{}
+\usecolortheme{whale}
+\usepackage{fontspec}
+\setsansfont[Ligatures=TeX, UprightFont={[*-Regular.otf]}, BoldFont={[*-Bold.otf]}]{YanoneKaffeesatz}
+\setmonofont{Inconsolata}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Colors
+
+% define
+
+\definecolor{my-color-1}{RGB}{121,   2,  87} % primary
+\definecolor{my-color-2}{RGB}{250, 132, 216} % lighter
+\definecolor{my-color-3}{RGB}{  0,   0,   0} % unknown
+\definecolor{my-color-4}{RGB}{  0,   0,   0} % darker
+
+\definecolor{tab-1}{rgb}{0.04,0.34,0.58}
+\definecolor{tab-2}{rgb}{0.36,0.56,0.72}
+\definecolor{tab-3}{rgb}{0.68,0.78,0.86}
+
+
+% set
+
+\setbeamercolor{structure}{fg=my-color-1}
+\setbeamercolor{alerted text}{fg=my-color-1!56!red}
+
+\setbeamercolor{palette primary}   {fg=white, bg=my-color-1}
+\setbeamercolor{palette secondary} {fg=black, bg=my-color-2}
+\setbeamercolor{palette tertiary}  {fg=white, bg=my-color-3}
+\setbeamercolor{palette quaternary}{fg=white, bg=my-color-4}
+
+\setbeamercolor{page number in head/foot} {fg=black, bg=white}
+\setbeamercolor{icon in head/foot} {fg=black, bg=white}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Templates
+
+\setbeamertemplate{headline}[default]
+
+\defbeamertemplate{footline}{mine}[2]
+{
+  \leavevmode%
+  \hbox
+  {%
+    \begin{beamercolorbox}[wd=.160\paperwidth,ht=3ex,dp=3ex,center]{icon in head/foot}
+      \pgfimage[mask=#2,interpolate=true,height=16pt]{#1}
+    \end{beamercolorbox}%
+
+    \hskip .740\paperwidth
+
+    \begin{beamercolorbox}[wd=.100\paperwidth,ht=3ex,dp=3ex,center]{page number in head/foot}
+      \usebeamerfont{page number in head/foot}
+      \insertframenumber{} / \inserttotalframenumber{}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\newcommand{\setfooterlogo}[2]
+{
+  \setbeamertemplate{footline}[mine]{#1}{#2}
+}
+
+%\pgfdeclaremask{masklogo}{img/logo}
+\newcommand\defaultlogo{\setfooterlogo{img/ht}{}}
+\defaultlogo
+
+\setbeamersize{text margin left=10pt,text margin right=10pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fonts
+
+\setbeamerfont{frametitle}{size=\small}
+\setbeamerfont{structure}{series=\bfseries}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Settings
+
+\setbeamertemplate{navigation symbols}{}
+
+\bibliographystyle{apalike}
+
+\mode<all>
